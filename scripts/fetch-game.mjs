@@ -19,7 +19,7 @@ const descOf = d => {
   if (typeof d === 'string') return clean(d);
   if (d.desc) return clean(d.desc);
   // otherwise take the longest text (short ones are usually upgrade notes like "+25% Speed")
-  const texts = Object.values(d).filter(v => typeof v === 'string').map(clean).filter(Boolean);
+  const texts = Object.values(d).filter(v => typeof v === 'string').map(clean).filter(t => t && !/^[+-]\d/.test(t));
   return texts.sort((a, b) => b.length - a.length)[0] || '';
 };
 const pct = (a, b) => (b ? Math.round((a / b) * 1000) / 10 : null);
