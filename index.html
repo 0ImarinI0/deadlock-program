@@ -215,7 +215,7 @@ const SRC = {
 
 const NEWS = [
   {
-    id: 'halloween', cat: 'patch', tag: 'ПАТЧ', tone: 'blood', date: '30 жовтня 2026', read: 6, featured: true,
+    id: 'halloween', ts: Date.parse('2026-10-30T12:00:00Z'), cat: 'patch', tag: 'ПАТЧ', tone: 'blood', date: '30 жовтня 2026', read: 6, featured: true,
     title: 'Хелловін-оновлення: котли з цукерками, новий мідбос і нерфи новачків',
     lead: 'Valve поєднала святковий івент із великим балансним патчем. Мідбос став міцнішим, але дає вдвічі менше душ, а шістьох нових героїв помітно послабили.',
     body: [
@@ -249,7 +249,7 @@ const NEWS = [
     sources: ['shark', 'one'],
   },
   {
-    id: 'harrow', cat: 'heroes', tag: 'НОВИЙ ГЕРОЙ', tone: 'soul', date: '20 жовтня 2026', read: 3,
+    id: 'harrow', ts: Date.parse('2026-10-20T12:00:00Z'), cat: 'heroes', tag: 'НОВИЙ ГЕРОЙ', tone: 'soul', date: '20 жовтня 2026', read: 3,
     title: 'Nurse Harrow стала 44-м героєм Deadlock',
     lead: 'Сувора цілителька із захисним характером завершила осінню хвилю The City Never Sleeps.',
     body: [
@@ -259,7 +259,7 @@ const NEWS = [
     sources: ['tracker', 'one'],
   },
   {
-    id: 'baba14', cat: 'patch', tag: 'ПАТЧ', tone: 'brass', date: '14 жовтня 2026', read: 2,
+    id: 'baba14', ts: Date.parse('2026-10-14T12:00:00Z'), cat: 'patch', tag: 'ПАТЧ', tone: 'brass', date: '14 жовтня 2026', read: 2,
     title: 'Мінорний патч 14 жовтня: Baba стала слабшою',
     lead: 'Valve швидко відреагувала на сильний старт нової містикині.',
     body: [
@@ -274,7 +274,7 @@ const NEWS = [
     sources: ['steam14'],
   },
   {
-    id: 'city', cat: 'event', tag: 'ОНОВЛЕННЯ', tone: 'sapph', date: '30 вересня 2026', read: 5,
+    id: 'city', ts: Date.parse('2026-09-30T12:00:00Z'), cat: 'event', tag: 'ОНОВЛЕННЯ', tone: 'sapph', date: '30 вересня 2026', read: 5,
     title: 'The City Never Sleeps: нові райони, Брокер і шість героїв',
     lead: 'Найбільше оновлення осені змінило мапу Нью-Йорка, інтерфейс і додало торговця проклятими предметами.',
     body: [
@@ -289,7 +289,7 @@ const NEWS = [
     sources: ['cns'],
   },
   {
-    id: 'wave', cat: 'heroes', tag: 'ГЕРОЇ', tone: 'amber', date: '2–20 жовтня 2026', read: 3,
+    id: 'wave', ts: Date.parse('2026-10-16T12:00:00Z'), cat: 'heroes', tag: 'ГЕРОЇ', tone: 'amber', date: '2–20 жовтня 2026', read: 3,
     title: 'Жовтнева хвиля: Rat King, Baba, Solomon, Deadman Danny і Violet',
     lead: 'За три тижні ростер виріс із 38 до 44 героїв.',
     body: [
@@ -305,7 +305,7 @@ const NEWS = [
     sources: ['sense', 'tracker'],
   },
   {
-    id: 'record', cat: 'community', tag: 'СПІЛЬНОТА', tone: 'soul', date: 'Жовтень 2026', read: 2,
+    id: 'record', ts: Date.parse('2026-10-15T12:00:00Z'), cat: 'community', tag: 'СПІЛЬНОТА', tone: 'soul', date: 'Жовтень 2026', read: 2,
     title: 'Рекорд онлайну: 262 145 гравців одночасно',
     lead: 'Після The City Never Sleeps Deadlock обігнав рекорд Team Fortress 2.',
     body: [
@@ -314,7 +314,7 @@ const NEWS = [
     sources: ['wiki'],
   },
   {
-    id: 'ranked', cat: 'community', tag: 'РЕЙТИНГ', tone: 'brass', date: '6 жовтня 2026', read: 1,
+    id: 'ranked', ts: Date.parse('2026-10-06T12:00:00Z'), cat: 'community', tag: 'РЕЙТИНГ', tone: 'brass', date: '6 жовтня 2026', read: 1,
     title: 'Рейтинговий сезон завершиться 5 листопада',
     lead: 'Valve перенесла кінець сезону, щоб гравці встигли освоїти нових героїв.',
     body: [
@@ -324,7 +324,7 @@ const NEWS = [
   },
 ];
 
-const CATS = [['all', 'УСІ'], ['patch', 'ПАТЧІ'], ['heroes', 'ГЕРОЇ'], ['event', 'ОНОВЛЕННЯ'], ['community', 'СПІЛЬНОТА']];
+const CATS = [['all', 'УСІ'], ['steam', 'STEAM'], ['patch', 'ПАТЧІ'], ['heroes', 'ГЕРОЇ'], ['event', 'ОНОВЛЕННЯ'], ['community', 'СПІЛЬНОТА']];
 
 const ROLES = { brawler: 'Боєць', mystic: 'Містик', assassin: 'Убивця', marksman: 'Стрілець', flex: 'Гнучкий' };
 // [name, role, release]
@@ -499,10 +499,10 @@ const TIP_SECTIONS = [['lane', 'Лінія і фарм', 'lane', 'brass'], ['tea
       <div class="article-art">${burst(390, 230, n.tone, 195, 150, { from: 180, to: 360, step: 6, len: 420, arcs: true, rings: [60, 95, 130, 170] })}</div>
       <div class="row" style="margin-top:-60px;position:relative">${tag(n.tag, n.tone)}<span class="caps muted">${esc(n.date)}</span></div>
       <h1 class="display h1">${esc(n.title)}</h1>
-      <div class="row" style="gap:10px">${emblem(28)}<div><div style="font-weight:600">Редакція DeadlockNews</div><div class="muted" style="font-size:13px">${n.read} хв читання</div></div></div>
+      <div class="row" style="gap:10px">${emblem(28)}<div><div style="font-weight:600">${n.steam ? 'Valve · Steam' : 'Редакція DeadlockNews'}</div><div class="muted" style="font-size:13px">${n.read} хв читання</div></div></div>
       <div class="divider"><span style="color:var(--brass)">◆</span></div>
       <div class="prose"><p style="font-size:16px">${esc(n.lead)}</p>${blocks}</div>
-      <div class="sources"><span class="caps">ДЖЕРЕЛА</span>${n.sources.map(k => `<a href="${SRC[k][1]}" target="_blank" rel="noopener">${esc(SRC[k][0])}</a>`).join('')}</div>
+      <div class="sources"><span class="caps">ДЖЕРЕЛА</span>${(n.sources || []).map(k => `<a href="${SRC[k][1]}" target="_blank" rel="noopener">${esc(SRC[k][0])}</a>`).join('')}${n.link ? `<a href="${esc(n.link)}" target="_blank" rel="noopener">Оригінал у Steam ›</a>` : ''}${n.steam ? '<span>Офіційна новина Valve, мова оригіналу — англійська.</span>' : ''}</div>
     </div>${tabbar('news')}`;
   }
 
@@ -687,7 +687,28 @@ const TIP_SECTIONS = [['lane', 'Лінія і фарм', 'lane', 'brass'], ['tea
   });
   window.addEventListener('hashchange', () => { render.prev = true; });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && sheet) { sheet = ''; if (location.hash.startsWith('#hero-')) history.replaceState(null, '', '#heroes'); render(); } });
+  // ---------- live news from Steam (news.json is refreshed by a GitHub Action) ----------
+  const fmtDate = ts => { try { return new Date(ts).toLocaleDateString('uk-UA', { day: 'numeric', month: 'long', year: 'numeric' }).replace(' р.', ''); } catch (e) { return ''; } };
+  function addSteam(items) {
+    let added = 0;
+    for (const it of items || []) {
+      if (!it || !it.id || NEWS.some(n => n.id === it.id)) continue;
+      const blocks = (it.blocks || []).filter(b => Array.isArray(b));
+      const firstP = blocks.find(b => b[0] === 'p');
+      const words = blocks.reduce((a, b) => a + (Array.isArray(b[1]) ? b[1].join(' ') : String(b[1])).split(/\s+/).length, 0);
+      const isPatch = /update|patch/i.test(it.title);
+      NEWS.push({ id: it.id, ts: it.ts, steam: true, cat: 'steam', tag: isPatch ? 'ПАТЧ STEAM' : 'STEAM', tone: isPatch ? 'brass' : 'sapph',
+        date: fmtDate(it.ts), read: Math.max(1, Math.round(words / 200)), title: it.title,
+        lead: firstP ? firstP[1] : '', body: blocks.filter(b => b !== firstP).map(b => [b[0], b[1]]), link: it.url });
+      added++;
+    }
+    if (added) { NEWS.sort((a, b) => (b.ts || 0) - (a.ts || 0)); render(); }
+    return added;
+  }
+  NEWS.sort((a, b) => (b.ts || 0) - (a.ts || 0));
+  try { const cached = LS.get('steam_news', null); if (cached) addSteam(cached.items); } catch (e) {}
   render();
+  fetch('news.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(j => { if (j && Array.isArray(j.items)) { LS.set('steam_news', { items: j.items.slice(0, 25) }); addSteam(j.items); } }).catch(() => {});
 })();
 
 </script>
