@@ -1,5 +1,6 @@
 // One-off probe: saves the shape of deadlock-api responses to data/probe.json
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync } from 'node:fs';
+mkdirSync('data', { recursive: true });
 const since = Math.floor(Date.now() / 1000) - 30 * 86400;
 const urls = {
   heroes: 'https://api.deadlock-api.com/v1/assets/heroes?only_active=true&language=english',
