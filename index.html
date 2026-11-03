@@ -197,6 +197,31 @@ html[data-mode="bw"] .portrait img { filter: grayscale(1) contrast(1.1); }
 
 .hero-news .in > .tag, .featured-tip > .tag { align-self: flex-start; }
 
+/* directory sub-nav, tier list, items, hero sheet data */
+.seg-switch.three { grid-template-columns: repeat(3, 1fr); }
+.seg-switch.three button { font-size: 12px; }
+.tier-group { display: flex; flex-direction: column; gap: 8px; }
+.tier-head { display: flex; align-items: center; gap: 12px; }
+.tier-letter { width: 34px; height: 34px; display: grid; place-items: center; font: 400 22px/1 var(--f-display); color: var(--on-brass); background: var(--c); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.tier-row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; width: 100%; }
+.tier-row:last-child { border-bottom: 0; }
+.tier-row:active, .item-row:active { background: var(--raised); }
+.tier-row .grow, .item-row .grow, .build-item .grow { flex: 1; min-width: 0; display: block; }
+.portrait.sm { --size: 40px; }
+.bar { display: block; height: 4px; background: var(--line); margin-top: 6px; }
+.bar i { display: block; height: 100%; background: var(--c); }
+.item-row { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px 12px 12px; border-bottom: 1px solid var(--line); text-align: left; width: 100%; border-left: 3px solid var(--c); }
+.item-row:last-child { border-bottom: 0; }
+.tierbox { flex: none; width: 30px; height: 30px; display: grid; place-items: center; font: 600 12px/1 var(--f-caps); color: var(--c); border: 1px solid color-mix(in srgb, var(--c) 60%, transparent); background: color-mix(in srgb, var(--c) 10%, transparent); }
+.item-desc { display: block; margin-top: 8px; font-size: 13px; color: var(--text); line-height: 1.5; }
+.dots { display: inline-flex; gap: 3px; } .dots i { width: 8px; height: 8px; transform: rotate(45deg); background: var(--line); } .dots i.on { background: var(--brass); }
+.abilities { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.abilities li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; }
+.ab-n { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--brass-d); color: var(--brass); font: 600 14px/1 var(--f-caps); }
+.build { display: flex; flex-direction: column; gap: 8px; }
+.build-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-left: 3px solid var(--c); background: var(--bg); width: 100%; }
+.sheet .stats { border: 1px solid var(--line); }
+
 </style>
 </head>
 <body>
@@ -382,7 +407,7 @@ const TIP_SECTIONS = [['lane', 'Лінія і фарм', 'lane', 'brass'], ['tea
   const S = {
     onb: LS.get('onb', false), level: LS.get('level', 'veteran'), mode: LS.get('mode', 'color'),
     bm: new Set(LS.get('bm', [])), fav: new Set(LS.get('fav', [])), mark: LS.get('mark', true),
-    cat: 'all', newsQ: '', newsSearch: false, heroQ: '', heroRole: 'all', tipSec: null, tipIdx: 0,
+    cat: 'all', newsQ: '', newsSearch: false, tierRole: 'all', itemQ: '', itemSlot: 'all', itemTier: 0, itemOpen: null, buildStage: 'early', heroQ: '', heroRole: 'all', tipSec: null, tipIdx: 0,
   };
   const save = () => { LS.set('onb', S.onb); LS.set('level', S.level); LS.set('mode', S.mode); LS.set('bm', [...S.bm]); LS.set('fav', [...S.fav]); LS.set('mark', S.mark); };
   const BUNDLED = new Set(["abrams", "apollo", "baba", "bebop", "billy", "calico", "celeste", "drifter", "dynamo", "graves", "grey-talon", "haze", "holliday", "ivy", "kelvin", "lady-geist", "lash", "mcginnis", "mina", "mirage", "mo-and-krill", "paige", "paradox", "pocket", "rat-king", "rem", "seven", "shiv", "silver", "sinclair", "solomon", "the-doorman", "venator", "victor", "vindicta", "viscous", "vyper", "warden", "wraith", "yamato", "deadman-danny", "infernus", "nurse-harrow", "violet"]);
@@ -544,12 +569,54 @@ const TIP_SECTIONS = [['lane', 'Лінія і фарм', 'lane', 'brass'], ['tea
     const q = S.heroQ.trim().toLowerCase();
     const list = HEROES.filter(h => (S.heroRole === 'all' || (S.heroRole === 'fav' ? S.fav.has(h.slug) : S.heroRole === 'new' ? h.isNew : h.role === S.heroRole)) && (!q || h.name.toLowerCase().includes(q)));
     const filters = [['all', 'УСІ'], ['new', 'НОВІ'], ['fav', 'УЛЮБЛЕНІ'], ...Object.entries(ROLES).map(([k, v]) => [k, v.toUpperCase()])];
-    return `<div class="screen">${topTitle('ДОВІДНИК · 44 ГЕРОЇ', 'Герої')}
+    return `<div class="screen">${topTitle('ДОВІДНИК · 44 ГЕРОЇ', 'Герої')}${sub('heroes')}
       <label class="search">${I('search')}<input id="hero-q" type="search" placeholder="Пошук героя" value="${esc(S.heroQ)}" autocomplete="off"></label>
       <div class="chips" role="group" aria-label="Фільтр">${filters.map(([k, l]) => `<button class="chip caps" data-role="${k}" aria-pressed="${S.heroRole === k}">${l}</button>`).join('')}</div>
       <div class="grid3">${list.map(h => `<button class="card tile" data-hero="${h.slug}">${h.isNew ? `<span class="new">${tag('NEW', 'soul')}</span>` : ''}${S.fav.has(h.slug) ? `<span class="fav">${I('star', 's')}</span>` : ''}${portrait(h)}<span class="name">${esc(h.name)}</span><span class="muted" style="font-size:12px">${ROLES[h.role]}</span></button>`).join('')}</div>
       ${list.length ? '' : `<p class="muted">${S.heroRole === 'fav' ? 'Ви ще не додали улюблених героїв. Відкрийте героя й натисніть зірку.' : 'Героя не знайдено.'}</p>`}
       <p class="muted" style="font-size:12px;margin:0">Хочете інше фото? Відкрийте героя й натисніть «Своє фото»: воно заміне стандартне.</p>
+    </div>${tabbar('heroes')}`;
+  }
+
+  // ---------- game data (game.json, refreshed daily by a GitHub Action) ----------
+  let G = null;
+  const SLOT = { weapon: ['Зброя', 'amber'], vitality: ['Живучість', 'soul'], spirit: ['Дух', 'sapph'] };
+  const gHero = slug => G && G.heroes.find(x => x.slug === slug);
+  const gItem = id => G && G.items.find(x => x.id === id);
+  const fmtN = n => n >= 1e6 ? (n / 1e6).toFixed(1).replace('.', ',') + ' млн' : n >= 1e3 ? Math.round(n / 1e3) + ' тис.' : String(n);
+  const sub = active => `<div class="seg-switch three" role="group" aria-label="Довідник">${[['heroes', 'ГЕРОЇ'], ['tier', 'ТІР-ЛИСТ'], ['items', 'ПРЕДМЕТИ']].map(([k, l]) => `<button data-go="#${k}" aria-pressed="${active === k}">${l}</button>`).join('')}</div>`;
+  const noData = () => `<div class="demo-note">Дані гри ще завантажуються. Потрібен інтернет під час першого відкриття.</div>`;
+  const dataNote = () => G ? `<p class="muted" style="font-size:12px;margin:0">Статистика за ${G.days} днів, ${fmtN(G.totalMatches)} матчів. Дані: deadlock-api.com, оновлюються щодня. Описи англійською, як у грі.</p>` : '';
+  function tiers() {
+    const hs = G.heroes.filter(h => h.winrate != null).slice().sort((a, b) => b.winrate - a.winrate);
+    const n = hs.length, cut = [0.12, 0.35, 0.65, 0.88];
+    return hs.map((h, i) => ({ ...h, rank: i + 1, tier: 'SABCD'[cut.filter(c => i >= Math.round(c * n)).length] }));
+  }
+  function vTier() {
+    if (!G) return `<div class="screen">${topTitle('ДОВІДНИК', 'Тір-лист')}${sub('tier')}${noData()}</div>${tabbar('heroes')}`;
+    const all = tiers(); const list = all.filter(h => S.tierRole === 'all' || (HEROES.find(x => x.slug === h.slug) || {}).role === S.tierRole);
+    const max = Math.max(...all.map(h => h.winrate)), min = Math.min(...all.map(h => h.winrate));
+    const TT = { S: 'soul', A: 'brass', B: 'sapph', C: 'amber', D: 'blood' };
+    const groups = 'SABCD'.split('').map(t => [t, list.filter(h => h.tier === t)]).filter(g => g[1].length);
+    return `<div class="screen">${topTitle('ЗА ВІДСОТКОМ ПЕРЕМОГ', 'Тір-лист')}${sub('tier')}
+      <div class="chips" role="group" aria-label="Роль">${[['all', 'УСІ'], ...Object.entries(ROLES).map(([k, v]) => [k, v.toUpperCase()])].map(([k, l]) => `<button class="chip caps" data-trole="${k}" aria-pressed="${S.tierRole === k}">${l}</button>`).join('')}</div>
+      ${groups.map(([t, hs]) => `<section class="tier-group" style="--c:${TONE[TT[t]]}"><div class="tier-head"><span class="tier-letter">${t}</span><span class="caps muted">${hs.length} ${hs.length === 1 ? 'ГЕРОЙ' : hs.length < 5 ? 'ГЕРОЇ' : 'ГЕРОЇВ'}</span></div>
+        <div class="card" style="display:flex;flex-direction:column">${hs.map(h => { const base = HEROES.find(x => x.slug === h.slug) || { name: h.name, slug: h.slug, role: 'flex' };
+          return `<button class="tier-row" data-hero="${h.slug}"><span class="num muted" style="font-size:14px;width:22px">${h.rank}</span>${portrait({ ...base, name: h.name }).replace('class="portrait ', 'class="portrait sm ')}<span class="grow"><span style="font-weight:600">${esc(h.name)}</span><span class="bar"><i style="width:${Math.max(6, (h.winrate - min) / (max - min || 1) * 100).toFixed(0)}%"></i></span></span><span style="text-align:right"><span class="num" style="font-size:16px">${h.winrate.toFixed(1)}%</span><br><span class="muted" style="font-size:11.5px">${fmtN(h.matches)}</span></span></button>`; }).join('')}</div></section>`).join('')}
+      ${dataNote()}
+    </div>${tabbar('heroes')}`;
+  }
+  function vItems() {
+    if (!G) return `<div class="screen">${topTitle('ДОВІДНИК', 'Предмети')}${sub('items')}${noData()}</div>${tabbar('heroes')}`;
+    const q = S.itemQ.trim().toLowerCase();
+    const list = G.items.filter(i => (S.itemSlot === 'all' || i.slot === S.itemSlot) && (!S.itemTier || i.tier === S.itemTier) && (!q || (i.name + ' ' + i.desc).toLowerCase().includes(q)));
+    return `<div class="screen">${topTitle('МАГАЗИН · ' + G.items.length + ' ПРЕДМЕТІВ', 'Предмети')}${sub('items')}
+      <label class="search">${I('search')}<input id="item-q" type="search" placeholder="Пошук предмета" value="${esc(S.itemQ)}" autocomplete="off"></label>
+      <div class="chips" role="group" aria-label="Слот">${[['all', 'УСІ'], ...Object.entries(SLOT).map(([k, v]) => [k, v[0].toUpperCase()])].map(([k, l]) => `<button class="chip caps" data-slot="${k}" aria-pressed="${S.itemSlot === k}">${l}</button>`).join('')}${[0, 1, 2, 3, 4, 5].map(t => `<button class="chip caps" data-tier="${t}" aria-pressed="${S.itemTier === t}">${t ? 'T' + t : 'УСІ ТИРИ'}</button>`).join('')}</div>
+      <div class="between"><span class="caps muted">${list.length} ${list.length === 1 ? 'ПРЕДМЕТ' : 'ПРЕДМЕТІВ'}</span><span class="caps muted">% ПЕРЕМОГ</span></div>
+      <div class="card" style="display:flex;flex-direction:column">${list.map(i => { const [sl, tone] = SLOT[i.slot] || ['', 'brass']; const open = S.itemOpen === i.id;
+        return `<button class="item-row" style="--c:${TONE[tone]}" data-item="${i.id}" aria-expanded="${open}"><span class="tierbox">T${i.tier}</span><span class="grow"><span style="font-weight:600">${esc(i.name)}</span>${i.active ? ' ' + tag('АКТИВНИЙ', tone) : ''}<br><span class="muted" style="font-size:12.5px">${sl}${i.cost ? ' · ' + i.cost.toLocaleString('uk-UA') + ' душ' : ''}</span>${open ? `<span class="item-desc">${esc(i.desc || 'Опису немає.')}</span>` : ''}</span><span class="num" style="font-size:15px;color:${i.winrate >= 52 ? 'var(--soul)' : i.winrate < 48 ? 'var(--blood)' : 'var(--text)'}">${i.winrate != null ? i.winrate.toFixed(1) : '—'}</span></button>`; }).join('') || '<p class="muted" style="padding:14px;margin:0">Нічого не знайдено.</p>'}</div>
+      ${dataNote()}
     </div>${tabbar('heroes')}`;
   }
 
@@ -597,6 +664,18 @@ const TIP_SECTIONS = [['lane', 'Лінія і фарм', 'lane', 'brass'], ['tea
         <button class="btn ${fav ? 'primary' : 'secondary'}" data-act="fav" data-slug="${slug}" aria-pressed="${fav}">${I('star')}${fav ? 'В улюблених' : 'В улюблені'}</button>
       </div>
       ${ownPhoto(slug) ? `<button class="btn ghost" data-act="del-photo" data-slug="${slug}">${I('trash', 's')} Повернути стандартне фото</button>` : ''}
+      ${(() => { const g = gHero(slug); if (!g) return G ? '' : noData();
+        const t = (tiers().find(x => x.slug === slug) || {}).tier;
+        const stage = S.buildStage; const b = (g.build || {})[stage] || [];
+        return `<div class="stats card">${[[g.winrate != null ? g.winrate.toFixed(1) + '%' : '—', 'ПЕРЕМОГИ'], [g.pickrate != null ? g.pickrate.toFixed(0) + '%' : '—', 'У МАТЧАХ'], [g.kda ? g.kda.map(v => Math.round(v)).join('/') : '—', 'K / D / A']].map(([v, l]) => `<div><span class="num" style="font-size:19px;white-space:nowrap">${v}</span><span class="caps muted" style="font-size:10px">${l}</span></div>`).join('')}</div>
+        <div class="row" style="justify-content:space-between"><span class="row">${t ? `<button data-go="#tier" class="tag caps t-brass">ТІР ${t}</button>` : ''}${g.complexity ? `<span class="caps muted">СКЛАДНІСТЬ</span><span class="dots">${[1, 2, 3].map(i => `<i class="${i <= g.complexity ? 'on' : ''}"></i>`).join('')}</span>` : ''}</span><span class="caps muted">${(g.tags || []).join(' · ').toUpperCase()}</span></div>
+        ${g.role ? `<div><div class="display h3">${esc(g.role)}</div>${g.playstyle ? `<p class="muted" style="margin:6px 0 0;font-size:13.5px">${esc(g.playstyle)}</p>` : ''}</div>` : ''}
+        <h3 class="display h2">Здібності</h3>
+        <ol class="abilities">${g.abilities.map((a, i) => `<li><span class="ab-n">${i + 1}</span><div><div style="font-weight:600">${esc(a.name)}${i === 3 ? ' <span class="caps brass" style="font-size:10px">УЛЬТИМЕЙТ</span>' : ''}</div><div class="muted" style="font-size:13px">${esc(a.desc)}</div></div></li>`).join('')}</ol>
+        <h3 class="display h2">Популярна збірка</h3>
+        <div class="seg-switch three" role="group" aria-label="Стадія гри">${[['early', 'ПОЧАТОК'], ['mid', 'СЕРЕДИНА'], ['late', 'КІНЕЦЬ']].map(([k, l]) => `<button data-stage="${k}" aria-pressed="${stage === k}">${l}</button>`).join('')}</div>
+        <div class="build">${b.map(([id, pick, wr]) => { const it = gItem(id); if (!it) return ''; const [, tone] = SLOT[it.slot] || ['', 'brass'];
+          return `<button class="build-item" style="--c:${TONE[tone]}" data-go="#items" data-item-go="${id}"><span class="tierbox">T${it.tier}</span><span class="grow" style="text-align:left"><span style="font-weight:600;font-size:13.5px">${esc(it.name)}</span><br><span class="muted" style="font-size:12px">беруть ${pick}% · перемоги ${wr}%</span></span></button>`; }).join('') || '<p class="muted">Немає даних.</p>'}</div>`; })()}
       <h3 class="display h2">Останні зміни</h3>
       ${notes.length ? `<div class="card changes">${notes.map(([k, d]) => { const tone = k === 'buff' ? 'soul' : 'blood'; return `<div class="change" style="--c:${TONE[tone]}"><span class="ib">${I(k === 'buff' ? 'up' : 'down')}</span><div class="muted" style="font-size:13px">${esc(d)}</div>${tag(k === 'buff' ? 'БАФ' : 'НЕРФ', tone)}</div>`; }).join('')}</div>` : '<p class="muted" style="margin:0">В останніх патчах (жовтень 2026) суттєвих змін для цього героя не було.</p>'}
     </div></div>`;
@@ -621,6 +700,8 @@ const TIP_SECTIONS = [['lane', 'Лінія і фарм', 'lane', 'brass'], ['tea
     else if (h.startsWith('article-')) html = vArticle(h.slice(8));
     else if (h === 'tips') html = vTips();
     else if (h === 'analysis') html = vAnalysis();
+    else if (h === 'tier') html = vTier();
+    else if (h === 'items') html = vItems();
     else if (h === 'heroes' || h.startsWith('hero-')) { html = vHeroes(); if (h.startsWith('hero-')) sheet = sheetHero(h.slice(5)); }
     else if (h === 'profile') html = vProfile();
     else html = vNews();
@@ -639,9 +720,9 @@ const TIP_SECTIONS = [['lane', 'Лінія і фарм', 'lane', 'brass'], ['tea
   window.addEventListener('scroll', onScroll, { passive: true });
 
   root.addEventListener('input', e => {
-    if (e.target.id === 'hero-q' || e.target.id === 'news-q') {
+    if (e.target.id === 'hero-q' || e.target.id === 'news-q' || e.target.id === 'item-q') {
       const el = e.target, pos = el.selectionStart;
-      if (el.id === 'hero-q') S.heroQ = el.value; else S.newsQ = el.value;
+      if (el.id === 'hero-q') S.heroQ = el.value; else if (el.id === 'item-q') S.itemQ = el.value; else S.newsQ = el.value;
       render(); const n = $('#' + el.id); if (n) { n.focus(); try { n.setSelectionRange(pos, pos); } catch (_) {} }
     }
   });
@@ -661,9 +742,15 @@ const TIP_SECTIONS = [['lane', 'Лінія і фарм', 'lane', 'brass'], ['tea
     if (el.classList.contains('sheet-wrap') && e.target !== el) return; // click inside sheet
     const d = el.dataset;
     if (d.secGo !== undefined) S.tipSec = d.secGo || null;
+    if (d.itemGo) { S.itemOpen = +d.itemGo; S.itemSlot = 'all'; S.itemTier = 0; S.itemQ = ''; }
     if (d.go) { if (d.act === 'fav-filter') S.heroRole = 'fav'; return go(d.go); }
     if (d.cat) { S.cat = d.cat; return render(); }
     if (d.role) { S.heroRole = d.role; return render(); }
+    if (d.trole) { S.tierRole = d.trole; return render(); }
+    if (d.slot) { S.itemSlot = d.slot; return render(); }
+    if (d.tier !== undefined) { S.itemTier = +d.tier; return render(); }
+    if (d.item) { S.itemOpen = S.itemOpen === +d.item ? null : +d.item; return render(); }
+    if (d.stage) { S.buildStage = d.stage; sheet = sheetHero((location.hash.match(/#hero-(.+)/) || [])[1] || ''); return render(); }
     if (d.sec !== undefined) { S.tipSec = d.sec || null; return render(); }
     if (d.level) { S.level = d.level; S.tipIdx = 0; save(); return render(); }
     if (d.hero) { sheet = sheetHero(d.hero); location.hash = '#hero-' + d.hero; if (!(location.hash.startsWith('#heroes') || location.hash.startsWith('#hero-'))) render(); return; }
@@ -708,6 +795,8 @@ const TIP_SECTIONS = [['lane', 'Лінія і фарм', 'lane', 'brass'], ['tea
   NEWS.sort((a, b) => (b.ts || 0) - (a.ts || 0));
   try { const cached = LS.get('steam_news', null); if (cached) addSteam(cached.items); } catch (e) {}
   render();
+  try { const cg = LS.get('game', null); if (cg && cg.heroes) G = cg; } catch (e) {}
+  fetch('game.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(j => { if (j && Array.isArray(j.heroes)) { G = j; LS.set('game', j); if (/^#(tier|items|hero)/.test(location.hash)) { if (location.hash.startsWith('#hero-')) sheet = sheetHero(location.hash.slice(6)); render(); } } }).catch(() => {});
   fetch('news.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(j => { if (j && Array.isArray(j.items)) { LS.set('steam_news', { items: j.items.slice(0, 25) }); addSteam(j.items); } }).catch(() => {});
 })();
 
