@@ -1,26 +1,22 @@
-// One-off probe: saves the shape of deadlock-api responses to data/probe.json
+// Probe #2: exact fields for hero abilities and shop items
 import { writeFileSync, mkdirSync } from 'node:fs';
 mkdirSync('data', { recursive: true });
-const since = Math.floor(Date.now() / 1000) - 30 * 86400;
-const urls = {
-  heroes: 'https://api.deadlock-api.com/v1/assets/heroes?only_active=true&language=english',
-  items: 'https://api.deadlock-api.com/v1/assets/items?language=english',
-  heroStats: `https://api.deadlock-api.com/v1/analytics/hero-stats?min_unix_timestamp=${since}`,
-  itemStats: `https://api.deadlock-api.com/v1/analytics/item-stats?min_unix_timestamp=${since}`,
-  abilities: 'https://api.deadlock-api.com/v1/assets/abilities?language=english',
+const get = u => fetch(u, { headers: { 'User-Agent': 'DeadlockNews-app' } }).then(r => r.json());
+const heroes = await get('https://api.deadlock-api.com/v1/assets/heroes?only_active=true&language=english');
+const items = await get('https://api.deadlock-api.com/v1/assets/items?language=english');
+const h = heroes.find(x => x.name === 'Haze') || heroes[0];
+const byClass = Object.fromEntries(items.map(i => [i.class_name, i]));
+const short = (o, keys) => Object.fromEntries(Object.entries(o).filter(([k]) => !keys || keys.includes(k)).map(([k, v]) => [k, typeof v === 'string' ? v.slice(0, 300) : (v && typeof v === 'object' ? (Array.isArray(v) ? `[array ${v.length}]` : Object.keys(v).slice(0, 40)) : v)]));
+const heroItems = h.items || {};
+const abil = Object.entries(heroItems).map(([slot, cls]) => { const a = byClass[cls]; return a ? { slot, cls, ...short(a), description: a.description, upgrades: (a.upgrades || []).slice(0, 3) } : { slot, cls, missing: true }; });
+const upgrades = items.filter(i => i.type === 'upgrade' && i.shopable !== false && !i.disabled);
+const up = upgrades.find(i => i.name === 'Toxic Bullets') || upgrades[0];
+const out = {
+  heroKeys: Object.keys(h), heroItems, heroDesc: h.description, heroTags: h.tags, heroComplexity: h.complexity, heroType: h.hero_type,
+  popular: h.popular_items && { early: (h.popular_items.early_game || []).slice(0, 3) },
+  abilities: abil.slice(0, 6),
+  upgradeKeys: Object.keys(up), upgradeSample: short(up), upgradeDescription: up.description,
+  upgradeCounts: { total: upgrades.length, bySlot: upgrades.reduce((a, i) => (a[i.item_slot_type] = (a[i.item_slot_type] || 0) + 1, a), {}), byTier: upgrades.reduce((a, i) => (a[i.item_tier] = (a[i.item_tier] || 0) + 1, a), {}) },
+  typeCounts: items.reduce((a, i) => (a[i.type] = (a[i.type] || 0) + 1, a), {}),
 };
-const cut = (v, d = 0) => {
-  if (Array.isArray(v)) return { _array: v.length, first: cut(v[0], d + 1) };
-  if (v && typeof v === 'object') { const o = {}; for (const [k, x] of Object.entries(v).slice(0, 60)) o[k] = d > 3 ? (typeof x) : cut(x, d + 1); return o; }
-  return typeof v === 'string' ? v.slice(0, 160) : v;
-};
-const out = {};
-for (const [k, u] of Object.entries(urls)) {
-  try {
-    const r = await fetch(u, { headers: { 'User-Agent': 'DeadlockNews-app (github.com/0ImarinI0/deadlock-program)' } });
-    const text = await r.text(); let j = null; try { j = JSON.parse(text); } catch {}
-    out[k] = { url: u, status: r.status, cors: r.headers.get('access-control-allow-origin'), bytes: text.length, sample: j ? cut(j) : text.slice(0, 400) };
-    if (Array.isArray(j) && j.length) out[k].names = j.slice(0, 80).map(x => [x.id ?? x.hero_id ?? x.heroId, x.name ?? x.class_name, x.type, x.item_slot_type]);
-  } catch (e) { out[k] = { url: u, error: String(e) }; }
-}
 writeFileSync('data/probe.json', JSON.stringify(out, null, 1));
