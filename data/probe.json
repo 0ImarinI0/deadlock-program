@@ -1,0 +1,2731 @@
+{
+ "heroes": {
+  "url": "https://api.deadlock-api.com/v1/assets/heroes?only_active=true&language=english",
+  "status": 200,
+  "cors": "*",
+  "bytes": 1431528,
+  "sample": {
+   "_array": 44,
+   "first": {
+    "id": 1,
+    "class_name": "hero_inferno",
+    "name": "Infernus",
+    "description": {
+     "lore": "Like most teenagers; Infernus was wild, rebellious, and impetuous.  Unlike most teenagers, Infernus was a creature from another plane and had a supernatural mas",
+     "role": "Lights up enemies and watches them burn",
+     "playstyle": "Infernus has many ways to deal damage over time, burning foes before swooping in for the kill. Due to Infernus' blazing speed, his enemies won't be able to esca"
+    },
+    "player_selectable": true,
+    "development_state": "release",
+    "disabled": false,
+    "in_development": false,
+    "needs_testing": false,
+    "assigned_players_only": false,
+    "tags": {
+     "_array": 3,
+     "first": "Arsonist"
+    },
+    "gun_tag": "Rapid Fire",
+    "hideout_rich_presence": "Mixing Drinks In The Hideout",
+    "hero_type": "mystic",
+    "gender": "male",
+    "search_name": "Infernus",
+    "popular_items": {
+     "timestamp": 1790702781,
+     "early_game": {
+      "_array": 12,
+      "first": {
+       "item_id": "number",
+       "class_name": "string",
+       "pick_pct": "number",
+       "winrate_pct": "number"
+      }
+     },
+     "mid_game": {
+      "_array": 22,
+      "first": {
+       "item_id": "number",
+       "class_name": "string",
+       "pick_pct": "number",
+       "winrate_pct": "number"
+      }
+     },
+     "late_game": {
+      "_array": 29,
+      "first": {
+       "item_id": "number",
+       "class_name": "string",
+       "pick_pct": "number",
+       "winrate_pct": "number"
+      }
+     }
+    },
+    "prerelease_only": false,
+    "limited_testing": false,
+    "complexity": 1,
+    "skin": 0,
+    "images": {
+     "icon_hero_card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_card.png",
+     "icon_hero_card_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_card.webp",
+     "icon_image_small": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.png",
+     "icon_image_small_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp",
+     "minimap_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_mm.png",
+     "minimap_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_mm.webp",
+     "hero_card_critical": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_card_critical.png",
+     "hero_card_critical_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_card_critical.webp",
+     "hero_card_gloat": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_card_gloat.png",
+     "hero_card_gloat_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_card_gloat.webp",
+     "top_bar_vertical_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_vertical.png",
+     "top_bar_vertical_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_vertical.webp",
+     "background_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/infernus_bg.png",
+     "background_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/infernus_bg.webp",
+     "name_image": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/heroes/hero_names/infernus.svg"
+    },
+    "models": {
+     "hero_select": "https://assets-bucket.deadlock-api.com/assets-api-res/models/heroes_wip/inferno/inferno/hero_select.glb"
+    },
+    "items": {
+     "weapon_primary": "citadel_weapon_inferno_set",
+     "weapon_melee": "ability_melee_inferno",
+     "ability_mantle": "citadel_ability_mantle",
+     "ability_jump": "citadel_ability_jump",
+     "ability_slide": "citadel_ability_slide",
+     "ability_zip_line": "citadel_ability_zip_line",
+     "ability_zip_line_boost": "citadel_ability_zipline_boost",
+     "ability_climb_rope": "citadel_ability_climb_rope",
+     "ability_innate1": "citadel_ability_dash",
+     "ability_innate2": "citadel_ability_sprint",
+     "ability_innate3": "citadel_ability_melee_parry",
+     "signature1": "ability_incendiary_projectile",
+     "signature2": "ability_flame_dash",
+     "signature3": "ability_afterburn",
+     "signature4": "ability_fire_bomb"
+    },
+    "starting_stats": {
+     "max_move_speed": {
+      "value": 6.7,
+      "display_stat_name": "EMaxMoveSpeed"
+     },
+     "sprint_speed": {
+      "value": 1.6,
+      "display_stat_name": "ESprintSpeed"
+     },
+     "crouch_speed": {
+      "value": 4.75,
+      "display_stat_name": "ECrouchSpeed"
+     },
+     "move_acceleration": {
+      "value": 4,
+      "display_stat_name": "EMoveAcceleration"
+     },
+     "light_melee_damage": {
+      "value": 50,
+      "display_stat_name": "ELightMeleeDamage"
+     },
+     "heavy_melee_damage": {
+      "value": 116,
+      "display_stat_name": "EHeavyMeleeDamage"
+     },
+     "max_health": {
+      "value": 830,
+      "display_stat_name": "EMaxHealth"
+     },
+     "weapon_power": {
+      "value": 0,
+      "display_stat_name": "EWeaponPower"
+     },
+     "reload_speed": {
+      "value": 1,
+      "display_stat_name": "EReloadSpeed"
+     },
+     "weapon_power_scale": {
+      "value": 1,
+      "display_stat_name": "EWeaponPowerScale"
+     },
+     "proc_build_up_rate_scale": {
+      "value": 1,
+      "display_stat_name": "EProcBuildUpRateScale"
+     },
+     "stamina": {
+      "value": 3,
+      "display_stat_name": "EStamina"
+     },
+     "base_health_regen": {
+      "value": 2,
+      "display_stat_name": "EBaseHealthRegen"
+     },
+     "stamina_regen_per_second": {
+      "value": 0.222222,
+      "display_stat_name": "EStaminaRegenPerSecond"
+     },
+     "ability_resource_max": {
+      "value": 0,
+      "display_stat_name": "EAbilityResourceMax"
+     },
+     "ability_resource_regen_per_second": {
+      "value": 0,
+      "display_stat_name": "EAbilityResourceRegenPerSecond"
+     },
+     "crit_damage_received_scale": {
+      "value": 1,
+      "display_stat_name": "ECritDamageReceivedScale"
+     },
+     "tech_duration": {
+      "value": 1,
+      "display_stat_name": "ETechDuration"
+     },
+     "tech_range": {
+      "value": 1,
+      "display_stat_name": "ETechRange"
+     },
+     "ground_dash_distance_in_meters": {
+      "value": 10,
+      "display_stat_name": "EGroundDashDistanceInMeters"
+     },
+     "ground_dash_duration": {
+      "value": 0.68,
+      "display_stat_name": "EGroundDashDuration"
+     },
+     "air_dash_distance_in_meters": {
+      "value": 8,
+      "display_stat_name": "EAirDashDistanceInMeters"
+     },
+     "air_dash_duration": {
+      "value": 0.47,
+      "display_stat_name": "EAirDashDuration"
+     },
+     "ooc_health_regen": {
+      "value": 0,
+      "display_stat_name": "EOOCHealthRegen"
+     }
+    },
+    "item_slot_info": {
+     "weapon": {
+      "max_purchases_for_tier": {
+       "_array": 3,
+       "first": 6
+      }
+     },
+     "vitality": {
+      "max_purchases_for_tier": {
+       "_array": 3,
+       "first": 6
+      }
+     },
+     "spirit": {
+      "max_purchases_for_tier": {
+       "_array": 3,
+       "first": 6
+      }
+     }
+    },
+    "physics": {
+     "stealth_speed_meters_per_second": 4
+    },
+    "colors": {
+     "ui": {
+      "_array": 3,
+      "first": 255
+     },
+     "style": {
+      "_array": 3,
+      "first": 201
+     },
+     "style_hex": "#C93C26"
+    },
+    "shop_stat_display": {
+     "spirit_stats_display": {
+      "display_stats": {
+       "_array": 6,
+       "first": "ETechCooldown"
+      }
+     },
+     "vitality_stats_display": {
+      "display_stats": {
+       "_array": 10,
+       "first": "EMaxHealth"
+      },
+      "other_display_stats": {
+       "_array": 6,
+       "first": "EMaxMoveSpeed"
+      }
+     },
+     "weapon_stats_display": {
+      "display_stats": {
+       "_array": 12,
+       "first": "EBulletDamage"
+      },
+      "other_display_stats": {
+       "_array": 2,
+       "first": "ELightMeleeDamage"
+      },
+      "weapon_attributes": {
+       "_array": 2,
+       "first": "EWeaponAttribute_RapidFire"
+      },
+      "weapon_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/guns/inferno_gun.png",
+      "weapon_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/guns/inferno_gun.webp"
+     }
+    },
+    "cost_bonuses": {
+     "weapon": {
+      "_array": 11,
+      "first": {
+       "gold_threshold": "number",
+       "bonus": "number",
+       "percent_on_graph": "number"
+      }
+     },
+     "vitality": {
+      "_array": 11,
+      "first": {
+       "gold_threshold": "number",
+       "bonus": "number",
+       "percent_on_graph": "number"
+      }
+     },
+     "spirit": {
+      "_array": 11,
+      "first": {
+       "gold_threshold": "number",
+       "bonus": "number",
+       "percent_on_graph": "number"
+      }
+     }
+    },
+    "stats_display": {
+     "health_header_stats": {
+      "_array": 2,
+      "first": "EMaxHealth"
+     },
+     "health_stats": {
+      "_array": 9,
+      "first": "EBulletArmorDamageReduction"
+     },
+     "magic_header_stats": {
+      "_array": 1,
+      "first": "ETechPower"
+     },
+     "magic_stats": {
+      "_array": 3,
+      "first": "ETechCooldown"
+     },
+     "weapon_header_stats": {
+      "_array": 2,
+      "first": "EWeaponDPS"
+     },
+     "weapon_stats": {
+      "_array": 4,
+      "first": "ELightMeleeDamage"
+     }
+    },
+    "hero_stats_ui": {
+     "weapon_stat_display": "EMeleeDamage_DEPRECATED",
+     "display_stats": {
+      "_array": 14,
+      "first": {
+       "category": "string",
+       "stat_type": "string"
+      }
+     }
+    },
+    "level_info": {
+     "1": {
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityUnlocks"
+      },
+      "required_gold": 0
+     },
+     "2": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 200
+     },
+     "3": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityUnlocks"
+      },
+      "required_gold": 500
+     },
+     "4": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 900
+     },
+     "5": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityUnlocks"
+      },
+      "required_gold": 1400
+     },
+     "6": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 2000
+     },
+     "7": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 2600
+     },
+     "8": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityUnlocks"
+      },
+      "required_gold": 3200
+     },
+     "9": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 3900
+     },
+     "10": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 4600
+     },
+     "11": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 5300
+     },
+     "12": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 6000
+     },
+     "13": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 6800
+     },
+     "14": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 7600
+     },
+     "15": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 8400
+     },
+     "16": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 9200
+     },
+     "17": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 10100
+     },
+     "18": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 11000
+     },
+     "19": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 11900
+     },
+     "20": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 12800
+     },
+     "21": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 13800
+     },
+     "22": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 14900
+     },
+     "23": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 16100
+     },
+     "24": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 17400
+     },
+     "25": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 18900
+     },
+     "26": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 20600
+     },
+     "27": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 22500
+     },
+     "28": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 24600
+     },
+     "29": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 26900
+     },
+     "30": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 29400
+     },
+     "31": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 32100
+     },
+     "32": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 35000
+     },
+     "33": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 38100
+     },
+     "34": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 41400
+     },
+     "35": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 44900
+     },
+     "36": {
+      "use_standard_upgrade": true,
+      "bonus_currencies": {
+       "_array": 1,
+       "first": "EAbilityPoints"
+      },
+      "required_gold": 48600
+     }
+    },
+    "scaling_stats": {},
+    "purchase_bonuses": {},
+    "standard_level_up_upgrades": {
+     "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL": 0.088,
+     "MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE": 0,
+     "MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL": 39,
+     "MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL": 1.58,
+     "MODIFIER_VALUE_BONUS_ATTACK_RANGE": 0,
+     "MODIFIER_VALUE_BOON_COUNT": 1,
+     "MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST": 0,
+     "MODIFIER_VALUE_TECH_RESIST": 0,
+     "MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER": 0,
+     "MODIFIER_VALUE_TECH_POWER": 1.1,
+     "MODIFIER_VALUE_OUT_OF_COMBAT_HEALTH_REGEN": 0
+    },
+    "item_draft_bucketing": {
+     "upgrade_ability_power_shard": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_ability_refresher": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_absorbing_armor": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_acolytes_glove": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_active_reload": {
+      "bucket": "Good",
+      "weight": 1
+     },
+     "upgrade_aerial_supremacy": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_ancient_shield": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_aoe_root": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_apex_combat": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_aprounds": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_arcane_extension": {
+      "bucket": "Good",
+      "weight": 1
+     },
+     "upgrade_arcane_surge": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_arctic_blast": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_banshee_slugs": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_berserker": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_blitz_bullets": {
+      "bucket": "Good",
+      "weight": 1
+     },
+     "upgrade_blood_tribute": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_boundless_spirit": {
+      "bucket": "Good",
+      "weight": 1
+     },
+     "upgrade_boxing_glove": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_bullet_armor_reduction_aura": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_bullet_resist_shredder": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_bulletshredimbue": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_burst_fire": {
+      "bucket": "Good",
+      "weight": 1
+     },
+     "upgrade_capacitor": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_cardio_calibrator": {
+      "bucket": "Good",
+      "weight": 1
+     },
+     "upgrade_celestial_guidance": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_chain_lightning": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_cheat_death": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_chonky": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_clip_size": {
+      "bucket": "Good",
+      "weight": 1
+     },
+     "upgrade_cloak_of_opportunity": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_cloaking_device_active": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_close_quarter_combat": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_close_range": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_cold_front": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_colossus": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_containment": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_cooldown_reduction": {
+      "bucket": "Good",
+      "weight": 1
+     },
+     "upgrade_counterspell": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_crackshot": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_critshot": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_crushing_fists": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_damage_recycler": {
+      "bucket": "Good",
+      "weight": 1
+     },
+     "upgrade_debuff_reducer": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_deflecting_armor": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_discord": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_divine_barrier": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_diviners_kevlar": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_dps_aura": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_eldritch_shot": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_electric_slippers": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_enchanted_holsters": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_endurance": {
+      "bucket": "Good",
+      "weight": 1
+     },
+     "upgrade_escalating_exposure": {
+      "bucket": "Good",
+      "weight": 1
+     },
+     "upgrade_eternal_gift": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_ethereal_bullets": {
+      "bucket": "Good",
+      "weight": 1
+     },
+     "upgrade_express_shot": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_extra_charge": {
+      "bucket": "Good",
+      "weight": 1
+     },
+     "upgrade_fervor": {
+      "bucket": "Normal",
+      "weight": 1
+     },
+     "upgrade_fleetfoot_boots": {
+      "bucket": "Normal",
+      "weight": 1
+     }
+    }
+   }
+  },
+  "names": [
+   [
+    1,
+    "Infernus",
+    null,
+    null
+   ],
+   [
+    2,
+    "Seven",
+    null,
+    null
+   ],
+   [
+    3,
+    "Vindicta",
+    null,
+    null
+   ],
+   [
+    4,
+    "Lady Geist",
+    null,
+    null
+   ],
+   [
+    6,
+    "Abrams",
+    null,
+    null
+   ],
+   [
+    7,
+    "Wraith",
+    null,
+    null
+   ],
+   [
+    8,
+    "McGinnis",
+    null,
+    null
+   ],
+   [
+    10,
+    "Paradox",
+    null,
+    null
+   ],
+   [
+    11,
+    "Dynamo",
+    null,
+    null
+   ],
+   [
+    12,
+    "Kelvin",
+    null,
+    null
+   ],
+   [
+    13,
+    "Haze",
+    null,
+    null
+   ],
+   [
+    14,
+    "Holliday",
+    null,
+    null
+   ],
+   [
+    15,
+    "Bebop",
+    null,
+    null
+   ],
+   [
+    16,
+    "Calico",
+    null,
+    null
+   ],
+   [
+    17,
+    "Grey Talon",
+    null,
+    null
+   ],
+   [
+    18,
+    "Mo & Krill",
+    null,
+    null
+   ],
+   [
+    19,
+    "Shiv",
+    null,
+    null
+   ],
+   [
+    20,
+    "Ivy",
+    null,
+    null
+   ],
+   [
+    25,
+    "Warden",
+    null,
+    null
+   ],
+   [
+    27,
+    "Yamato",
+    null,
+    null
+   ],
+   [
+    31,
+    "Lash",
+    null,
+    null
+   ],
+   [
+    35,
+    "Viscous",
+    null,
+    null
+   ],
+   [
+    50,
+    "Pocket",
+    null,
+    null
+   ],
+   [
+    52,
+    "Mirage",
+    null,
+    null
+   ],
+   [
+    58,
+    "Vyper",
+    null,
+    null
+   ],
+   [
+    60,
+    "Sinclair",
+    null,
+    null
+   ],
+   [
+    63,
+    "Mina",
+    null,
+    null
+   ],
+   [
+    64,
+    "Drifter",
+    null,
+    null
+   ],
+   [
+    65,
+    "Venator",
+    null,
+    null
+   ],
+   [
+    66,
+    "Victor",
+    null,
+    null
+   ],
+   [
+    67,
+    "Paige",
+    null,
+    null
+   ],
+   [
+    69,
+    "The Doorman",
+    null,
+    null
+   ],
+   [
+    72,
+    "Billy",
+    null,
+    null
+   ],
+   [
+    76,
+    "Graves",
+    null,
+    null
+   ],
+   [
+    77,
+    "Apollo",
+    null,
+    null
+   ],
+   [
+    78,
+    "Deadman Danny",
+    null,
+    null
+   ],
+   [
+    79,
+    "Rem",
+    null,
+    null
+   ],
+   [
+    80,
+    "Silver",
+    null,
+    null
+   ],
+   [
+    81,
+    "Celeste",
+    null,
+    null
+   ],
+   [
+    84,
+    "Rat King",
+    null,
+    null
+   ],
+   [
+    85,
+    "Solomon",
+    null,
+    null
+   ],
+   [
+    86,
+    "Violet",
+    null,
+    null
+   ],
+   [
+    87,
+    "Nurse Harrow",
+    null,
+    null
+   ],
+   [
+    88,
+    "Baba",
+    null,
+    null
+   ]
+  ]
+ },
+ "items": {
+  "url": "https://api.deadlock-api.com/v1/assets/items?language=english",
+  "status": 200,
+  "cors": "*",
+  "bytes": 6459920,
+  "sample": {
+   "_array": 782,
+   "first": {
+    "id": 2521299219,
+    "class_name": "ability_golden_idol",
+    "name": "Soul Urn",
+    "start_trained": true,
+    "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.png",
+    "image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp",
+    "heroes": {
+     "_array": 0
+    },
+    "properties": {
+     "AbilityCooldown": {
+      "value": "0",
+      "can_set_token_override": true,
+      "css_class": "cooldown",
+      "disable_value": "0",
+      "scale_function": {
+       "class_name": "string",
+       "subclass_name": "string",
+       "specific_stat_scale_type": "string"
+      },
+      "label": "Cooldown",
+      "postfix": "s",
+      "postvalue_label": "Cooldown",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/cooldown.svg"
+     },
+     "AbilityDuration": {
+      "value": "0",
+      "can_set_token_override": true,
+      "css_class": "duration",
+      "disable_value": "0",
+      "scale_function": {
+       "class_name": "string",
+       "subclass_name": "string",
+       "specific_stat_scale_type": "string"
+      },
+      "label": "Duration",
+      "postfix": "s",
+      "postvalue_label": "Duration",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+     },
+     "AbilityCastRange": {
+      "value": "0",
+      "can_set_token_override": true,
+      "css_class": "range",
+      "display_units": "EDisplayUnit_Meters",
+      "scale_function": {
+       "class_name": "string",
+       "subclass_name": "string",
+       "specific_stat_scale_type": "string"
+      },
+      "label": "Cast Range",
+      "postfix": "m",
+      "postvalue_label": "Cast Range",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/upgrades/property_range.svg"
+     },
+     "AbilityUnitTargetLimit": {
+      "value": "1",
+      "can_set_token_override": true
+     },
+     "AbilityCastDelay": {
+      "value": "0.1",
+      "can_set_token_override": true,
+      "css_class": "cast",
+      "disable_value": "0",
+      "label": "Cast Delay",
+      "postfix": "s",
+      "postvalue_label": "Cast Delay",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+     },
+     "AbilityChannelTime": {
+      "value": "0",
+      "can_set_token_override": true,
+      "css_class": "cast",
+      "disable_value": "0",
+      "scale_function": {
+       "class_name": "string",
+       "subclass_name": "string",
+       "scaling_stats": "object"
+      },
+      "label": "Channel Duration",
+      "postfix": "s",
+      "postvalue_label": "Channel Duration",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+     },
+     "AbilityPostCastDuration": {
+      "value": "0",
+      "disable_value": "0"
+     },
+     "AbilityCharges": {
+      "value": "0",
+      "can_set_token_override": true,
+      "css_class": "cast",
+      "disable_value": "-1",
+      "scale_function": {
+       "class_name": "string",
+       "subclass_name": "string"
+      },
+      "label": "Charges",
+      "postvalue_label": "Charges",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+     },
+     "AbilityCooldownBetweenCharge": {
+      "value": "-1.0",
+      "can_set_token_override": true,
+      "css_class": "charge_cooldown",
+      "disable_value": "-2",
+      "scale_function": {
+       "class_name": "string",
+       "subclass_name": "string"
+      },
+      "label": "Charge Delay",
+      "postfix": "s",
+      "postvalue_label": "Charge Delay",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/recharge.svg"
+     },
+     "ChannelMoveSpeed": {
+      "value": "-1",
+      "can_set_token_override": true,
+      "css_class": "move_speed",
+      "display_units": "EDisplayUnit_MetersPerSecond",
+      "postfix": "m",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+     },
+     "AbilityResourceCost": {
+      "value": "0",
+      "can_set_token_override": true,
+      "css_class": "cast",
+      "disable_value": "0",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+     },
+     "TechPower": {
+      "value": "0",
+      "can_set_token_override": true,
+      "provided_property_type": "MODIFIER_VALUE_TECH_POWER",
+      "disable_value": "0",
+      "prefix": "{s:sign}",
+      "label": "Spirit Power",
+      "postfix": "",
+      "postvalue_label": "Spirit Power"
+     },
+     "WeaponPower": {
+      "value": "0",
+      "can_set_token_override": true,
+      "provided_property_type": "MODIFIER_VALUE_WEAPON_POWER",
+      "disable_value": "0",
+      "prefix": "{s:sign}",
+      "label": "Weapon Damage",
+      "postfix": "%",
+      "postvalue_label": "Weapon Damage"
+     },
+     "Radius": {
+      "value": "20",
+      "css_class": "distance",
+      "scale_function": {
+       "class_name": "string",
+       "subclass_name": "string",
+       "specific_stat_scale_type": "string"
+      },
+      "label": "Radius",
+      "postfix": "m",
+      "postvalue_label": "Radius",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/range.svg"
+     },
+     "Lifetime": {
+      "value": "3",
+      "css_class": "duration",
+      "label": "Lifetime",
+      "postfix": "s",
+      "postvalue_label": "Lifetime",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/duration.svg"
+     },
+     "FixedMoveSpeed": {
+      "value": "15m",
+      "provided_property_type": "MODIFIER_VALUE_MOVE_SPEED_LIMIT",
+      "css_class": "move_speed",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+     },
+     "BonusMoveSpeed": {
+      "value": "2m",
+      "provided_property_type": "MODIFIER_VALUE_MOVEMENT_SPEED_MAX",
+      "css_class": "move_speed",
+      "prefix": "{s:sign}",
+      "label": "Move Speed",
+      "postfix": " m",
+      "postvalue_label": "Move Speed",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+     },
+     "BonusSprintSpeed": {
+      "value": "0m",
+      "css_class": "move_speed",
+      "prefix": "{s:sign}",
+      "label": "Sprint Speed",
+      "postfix": "m",
+      "postvalue_label": "Sprint Speed",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+     },
+     "TrailingTeamBonusSprintSpeed": {
+      "value": "5m",
+      "css_class": "move_speed",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+     },
+     "SlowResistancePercent": {
+      "value": "100",
+      "provided_property_type": "MODIFIER_VALUE_MOVEMENT_SLOW_RESISTANCE",
+      "css_class": "move_speed",
+      "prefix": "{s:sign}",
+      "label": "Slow Resist",
+      "postfix": "%",
+      "postvalue_label": "Slow Resist",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/move_speed.svg"
+     },
+     "TrailingTeamBonusArmorDamageResist": {
+      "value": "35",
+      "css_class": "bullet_armor_up",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/armor_bullet_color.svg"
+     },
+     "TrailingTeamBonusTechResist": {
+      "value": "35",
+      "css_class": "tech_armor_up",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/armor_spirit_color.svg"
+     },
+     "TrailingTeamBonusDebuffResist": {
+      "value": "35",
+      "css_class": "tech_armor_up",
+      "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/icons/properties/armor_spirit_color.svg"
+     },
+     "BonusArmorDamageResist": {
+      "value": "0"
+     },
+     "BonusTechResist": {
+      "value": "0"
+     },
+     "BonusDebuffResist": {
+      "value": "0"
+     },
+     "DropOffTimer": {
+      "value": "0.1"
+     },
+     "Stamina": {
+      "value": "1",
+      "provided_property_type": "MODIFIER_VALUE_STAMINA",
+      "prefix": "{s:sign}",
+      "label": "Stamina",
+      "postvalue_label": "Stamina"
+     },
+     "AirMoveIncreasePercent": {
+      "value": "10",
+      "provided_property_type": "MODIFIER_VALUE_AIR_MOVE_DISTANCE_INCREASE_PERCENT",
+      "prefix": "+",
+      "label": "Air Jump/Dash Distance",
+      "postfix": "%",
+      "postvalue_label": "Air Jump/Dash Distance"
+     },
+     "GroundMoveIncreasePercent": {
+      "value": "10",
+      "provided_property_type": "MODIFIER_VALUE_MOVEMENT_GROUND_DASH_INCREASE_PERCENT"
+     },
+     "BonusSprintAcceleration": {
+      "value": "14m",
+      "provided_property_type": "MODIFIER_VALUE_SPRINT_ACCELERATION"
+     },
+     "StaminaCooldownReduction": {
+      "value": "25",
+      "provided_property_type": "MODIFIER_VALUE_STAMINA_REGEN_PER_SECOND_PERCENTAGE",
+      "prefix": "{s:sign}",
+      "label": "Stamina Recovery",
+      "postfix": "%",
+      "postvalue_label": "Stamina Recovery"
+     }
+    },
+    "weapon_info": {},
+    "type": "ability",
+    "behaviours": {
+     "_array": 3,
+     "first": "CITADEL_ABILITY_BEHAVIOR_PROJECTILE"
+    },
+    "description": {},
+    "ability_type": "held"
+   }
+  },
+  "names": [
+   [
+    2521299219,
+    "Soul Urn",
+    "ability",
+    null
+   ],
+   [
+    2641680935,
+    "ability_item_pickup_effects",
+    "ability",
+    null
+   ],
+   [
+    2573821048,
+    "Knocked off Zipline",
+    "ability",
+    null
+   ],
+   [
+    875395762,
+    "citadel_ability_zipline_boost",
+    "ability",
+    null
+   ],
+   [
+    4109126631,
+    "Mantle",
+    "ability",
+    null
+   ],
+   [
+    4261702459,
+    "citadel_ability_climb_rope",
+    "ability",
+    null
+   ],
+   [
+    1466127517,
+    "Jump",
+    "ability",
+    null
+   ],
+   [
+    1443159618,
+    "",
+    "ability",
+    null
+   ],
+   [
+    2207638101,
+    "Dash",
+    "ability",
+    null
+   ],
+   [
+    2335418656,
+    "Slide",
+    "ability",
+    null
+   ],
+   [
+    664285540,
+    "Parry",
+    "ability",
+    null
+   ],
+   [
+    384715776,
+    "Melee",
+    "ability",
+    null
+   ],
+   [
+    2826225210,
+    "weapon_alternative_rmb_activate",
+    "weapon",
+    null
+   ],
+   [
+    1983361803,
+    "weapon_alternative_rmb+lmb_activate",
+    "weapon",
+    null
+   ],
+   [
+    2470199706,
+    "citadel_weapon_rutger_set",
+    "weapon",
+    null
+   ],
+   [
+    1115497205,
+    "citadel_weapon_kali_set",
+    "weapon",
+    null
+   ],
+   [
+    2790538565,
+    "citadel_weapon_gunslinger_set",
+    "weapon",
+    null
+   ],
+   [
+    2772141905,
+    "citadel_weapon_yakuza_set",
+    "weapon",
+    null
+   ],
+   [
+    3033433915,
+    "citadel_weapon_architect_set",
+    "weapon",
+    null
+   ],
+   [
+    2914777625,
+    "citadel_weapon_thumper_set",
+    "weapon",
+    null
+   ],
+   [
+    677666973,
+    "ability_melee_butcher",
+    "ability",
+    null
+   ],
+   [
+    2950623773,
+    "Melee",
+    "ability",
+    null
+   ],
+   [
+    755819616,
+    "citadel_ability_melee_butcher",
+    "ability",
+    null
+   ],
+   [
+    3299584775,
+    "citadel_ability_melee_gunslinger",
+    "ability",
+    null
+   ],
+   [
+    3571834135,
+    "citadel_ability_melee_yakuza",
+    "ability",
+    null
+   ],
+   [
+    1208692244,
+    "citadel_ability_melee_thumper",
+    "ability",
+    null
+   ],
+   [
+    3123925900,
+    "citadel_ability_melee_architect",
+    "ability",
+    null
+   ],
+   [
+    4182904284,
+    "rutger_rocket",
+    "ability",
+    null
+   ],
+   [
+    639385332,
+    "rutger_force_field",
+    "ability",
+    null
+   ],
+   [
+    1613872264,
+    "rutger_cheat_death",
+    "ability",
+    null
+   ],
+   [
+    363299194,
+    "rutger_pulse",
+    "ability",
+    null
+   ],
+   [
+    4260284622,
+    "citadel_ability_kali_spinning_blade",
+    "ability",
+    null
+   ],
+   [
+    21628267,
+    "ability_kali_dust_storm",
+    "ability",
+    null
+   ],
+   [
+    3219375905,
+    "citadel_ability_kali_disruptive_charge",
+    "ability",
+    null
+   ],
+   [
+    488392205,
+    "ability_kali_trappers_bolo",
+    "ability",
+    null
+   ],
+   [
+    2219528978,
+    "gunslinger_rapid_fire",
+    "ability",
+    null
+   ],
+   [
+    809682515,
+    "gunslinger_rocket_launcher",
+    "ability",
+    null
+   ],
+   [
+    3359246481,
+    "gunslinger_tenacity",
+    "ability",
+    null
+   ],
+   [
+    948328221,
+    "gunslinger_sleep_bomb",
+    "ability",
+    null
+   ],
+   [
+    2984400727,
+    "yakuza_kobun",
+    "ability",
+    null
+   ],
+   [
+    3577477084,
+    "yakuza_shakedown_target",
+    "ability",
+    null
+   ],
+   [
+    3108273022,
+    "yakuza_shakedown",
+    "ability",
+    null
+   ],
+   [
+    3908497730,
+    "yakuza_setting_sun",
+    "ability",
+    null
+   ],
+   [
+    2250508707,
+    "yakuza_gang_activity",
+    "ability",
+    null
+   ],
+   [
+    1685078091,
+    "yakuza_gang_activity_cancel",
+    "ability",
+    null
+   ],
+   [
+    523691429,
+    "yakuza_summon_gangster",
+    "ability",
+    null
+   ],
+   [
+    2340315673,
+    "yakuza_teleport_to_gangster",
+    "ability",
+    null
+   ],
+   [
+    3176860010,
+    "yakuza_fealty",
+    "ability",
+    null
+   ],
+   [
+    1584495732,
+    "yakuza_protection_racket",
+    "ability",
+    null
+   ],
+   [
+    348689004,
+    "thumper_ability_1",
+    "ability",
+    null
+   ],
+   [
+    2086284285,
+    "thumper_ability_2",
+    "ability",
+    null
+   ],
+   [
+    2489807574,
+    "thumper_ability_3",
+    "ability",
+    null
+   ],
+   [
+    2563620507,
+    "thumper_ability_4",
+    "ability",
+    null
+   ],
+   [
+    2976789773,
+    "citadel_weapon_bosstier2_set",
+    "weapon",
+    null
+   ],
+   [
+    3317486525,
+    "citadel_weapon_bosstier3_set",
+    "weapon",
+    null
+   ],
+   [
+    1889173382,
+    "ability_medic_trooper_heal",
+    "ability",
+    null
+   ],
+   [
+    1751980904,
+    "citadel_ability_trooper_zip_line",
+    "ability",
+    null
+   ],
+   [
+    1792983333,
+    "Rocket Barrage",
+    "ability",
+    null
+   ],
+   [
+    4101890370,
+    "Laser",
+    "ability",
+    null
+   ],
+   [
+    1233550373,
+    "Stomp",
+    "ability",
+    null
+   ],
+   [
+    1083734528,
+    "citadel_ability_tier2boss_aoe_wave",
+    "ability",
+    null
+   ],
+   [
+    337723920,
+    "Patron Laser",
+    "ability",
+    null
+   ],
+   [
+    1440185561,
+    "Patron",
+    "ability",
+    null
+   ],
+   [
+    10116178,
+    "Patron",
+    "ability",
+    null
+   ],
+   [
+    1681330920,
+    "Patron",
+    "ability",
+    null
+   ],
+   [
+    239553513,
+    "vanguard_aoe_buff",
+    "ability",
+    null
+   ],
+   [
+    2073346996,
+    "ability_npc_shield",
+    "ability",
+    null
+   ],
+   [
+    2082220949,
+    "Doc's Orders",
+    "weapon",
+    null
+   ],
+   [
+    519260576,
+    "Melee",
+    "ability",
+    null
+   ],
+   [
+    1235098866,
+    "Powder Keg",
+    "ability",
+    null
+   ],
+   [
+    2240607294,
+    "Bounce Pad",
+    "ability",
+    null
+   ],
+   [
+    3190606822,
+    "Spirit Lasso",
+    "ability",
+    null
+   ],
+   [
+    4179229681,
+    "Crackshot",
+    "ability",
+    null
+   ],
+   [
+    3609948706,
+    "Case Closed",
+    "weapon",
+    null
+   ],
+   [
+    3415298717,
+    "Melee",
+    "ability",
+    null
+   ],
+   [
+    2824119765,
+    "Shoulder Charge",
+    "ability",
+    null
+   ],
+   [
+    715762406,
+    "Infernal Resilience",
+    "ability",
+    null
+   ],
+   [
+    509856396,
+    "Seismic Impact",
+    "ability",
+    null
+   ],
+   [
+    4072270083,
+    "Siphon Life",
+    "ability",
+    null
+   ],
+   [
+    3764085067,
+    "Humble Pie",
+    "weapon",
+    null
+   ]
+  ]
+ },
+ "heroStats": {
+  "url": "https://api.deadlock-api.com/v1/analytics/hero-stats?min_unix_timestamp=1791149552",
+  "status": 200,
+  "cors": "*",
+  "bytes": 31224,
+  "sample": {
+   "_array": 44,
+   "first": {
+    "hero_id": 1,
+    "bucket": 0,
+    "wins": 831345,
+    "losses": 857392,
+    "matches": 1688737,
+    "matches_per_bucket": 1688737,
+    "total_kills": 12466514,
+    "total_deaths": 11835448,
+    "total_assists": 18854777,
+    "total_net_worth": 70331237458,
+    "total_last_hits": 291956172,
+    "total_denies": 5323193,
+    "total_player_damage": 55909173030,
+    "total_player_damage_taken": 56060222345,
+    "total_boss_damage": 11540561404,
+    "total_creep_damage": 62011197438,
+    "total_neutral_damage": 31622895630,
+    "total_max_health": 5326616631,
+    "total_shots_hit": 4088328796,
+    "total_shots_missed": 3350990802,
+    "total_permanent_buffs": 34606972,
+    "permanent_buff_matches": 1688737,
+    "total_first_permanent_buff_time_s": 741400515,
+    "permanent_buff_timing_matches": 1642383,
+    "bucket_matches_since_first_day": 55091606
+   }
+  },
+  "names": [
+   [
+    1,
+    null,
+    null,
+    null
+   ],
+   [
+    2,
+    null,
+    null,
+    null
+   ],
+   [
+    3,
+    null,
+    null,
+    null
+   ],
+   [
+    4,
+    null,
+    null,
+    null
+   ],
+   [
+    6,
+    null,
+    null,
+    null
+   ],
+   [
+    7,
+    null,
+    null,
+    null
+   ],
+   [
+    8,
+    null,
+    null,
+    null
+   ],
+   [
+    10,
+    null,
+    null,
+    null
+   ],
+   [
+    11,
+    null,
+    null,
+    null
+   ],
+   [
+    12,
+    null,
+    null,
+    null
+   ],
+   [
+    13,
+    null,
+    null,
+    null
+   ],
+   [
+    14,
+    null,
+    null,
+    null
+   ],
+   [
+    15,
+    null,
+    null,
+    null
+   ],
+   [
+    16,
+    null,
+    null,
+    null
+   ],
+   [
+    17,
+    null,
+    null,
+    null
+   ],
+   [
+    18,
+    null,
+    null,
+    null
+   ],
+   [
+    19,
+    null,
+    null,
+    null
+   ],
+   [
+    20,
+    null,
+    null,
+    null
+   ],
+   [
+    25,
+    null,
+    null,
+    null
+   ],
+   [
+    27,
+    null,
+    null,
+    null
+   ],
+   [
+    31,
+    null,
+    null,
+    null
+   ],
+   [
+    35,
+    null,
+    null,
+    null
+   ],
+   [
+    50,
+    null,
+    null,
+    null
+   ],
+   [
+    52,
+    null,
+    null,
+    null
+   ],
+   [
+    58,
+    null,
+    null,
+    null
+   ],
+   [
+    60,
+    null,
+    null,
+    null
+   ],
+   [
+    63,
+    null,
+    null,
+    null
+   ],
+   [
+    64,
+    null,
+    null,
+    null
+   ],
+   [
+    65,
+    null,
+    null,
+    null
+   ],
+   [
+    66,
+    null,
+    null,
+    null
+   ],
+   [
+    67,
+    null,
+    null,
+    null
+   ],
+   [
+    69,
+    null,
+    null,
+    null
+   ],
+   [
+    72,
+    null,
+    null,
+    null
+   ],
+   [
+    76,
+    null,
+    null,
+    null
+   ],
+   [
+    77,
+    null,
+    null,
+    null
+   ],
+   [
+    78,
+    null,
+    null,
+    null
+   ],
+   [
+    79,
+    null,
+    null,
+    null
+   ],
+   [
+    80,
+    null,
+    null,
+    null
+   ],
+   [
+    81,
+    null,
+    null,
+    null
+   ],
+   [
+    84,
+    null,
+    null,
+    null
+   ],
+   [
+    85,
+    null,
+    null,
+    null
+   ],
+   [
+    86,
+    null,
+    null,
+    null
+   ],
+   [
+    87,
+    null,
+    null,
+    null
+   ],
+   [
+    88,
+    null,
+    null,
+    null
+   ]
+  ]
+ },
+ "itemStats": {
+  "url": "https://api.deadlock-api.com/v1/analytics/item-stats?min_unix_timestamp=1791149552",
+  "status": 200,
+  "cors": "*",
+  "bytes": 42393,
+  "sample": {
+   "_array": 156,
+   "first": {
+    "item_id": 7409189,
+    "bucket": 0,
+    "wins": 13538940,
+    "losses": 13428087,
+    "matches": 26967027,
+    "players": 2418945,
+    "avg_buy_time_s": 797.9059382037182,
+    "avg_sell_time_s": 1736.2617605454877,
+    "avg_buy_time_relative": 36.99794076899379,
+    "avg_sell_time_relative": 73.68170363829749,
+    "sold": 16676161
+   }
+  },
+  "names": [
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null
+   ]
+  ]
+ },
+ "abilities": {
+  "url": "https://api.deadlock-api.com/v1/assets/abilities?language=english",
+  "status": 404,
+  "cors": "*",
+  "bytes": 0,
+  "sample": ""
+ }
+}
