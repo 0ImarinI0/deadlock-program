@@ -22,7 +22,7 @@ const descOf = d => {
 const pct = (a, b) => (b ? Math.round((a / b) * 1000) / 10 : null);
 
 const [heroes, items, heroStats, itemStats] = await Promise.all([
-  get(`${API}/assets/heroes?only_active=true&language=english`),
+  get(`${API}/assets/heroes?language=english`),
   get(`${API}/assets/items?language=english`),
   get(`${API}/analytics/hero-stats?min_unix_timestamp=${since}`),
   get(`${API}/analytics/item-stats?min_unix_timestamp=${since}`),
@@ -53,7 +53,7 @@ const build = list => (list || [])
   .map(x => [x.item_id, Math.round(x.pick_pct), Math.round(x.winrate_pct * 10) / 10]);
 
 const outHeroes = heroes
-  .filter(h => h.player_selectable !== false && !h.disabled && !h.in_development)
+  .filter(h => h.name && (hs[h.id]?.matches || 0) > 1000)
   .map(h => {
     const st = hs[h.id] || {};
     const abilities = ['signature1', 'signature2', 'signature3', 'signature4']
