@@ -1,0 +1,36 @@
+name: Оновлення героїв, предметів і статистики
+
+on:
+  schedule:
+    - cron: '23 4 * * *'     # щодня о 04:23 UTC
+  workflow_dispatch: {}
+  push:
+    paths:
+      - '.github/workflows/game.yml'
+      - 'scripts/fetch-game.mjs'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-commit
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Завантажити дані гри
+        run: node scripts/fetch-game.mjs
+      - name: Зберегти game.json
+        run: |
+          git config user.name "deadlocknews-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add game.json
+          if git diff --cached --quiet; then echo "Без змін"; exit 0; fi
+          git commit -m "Дані гри: $(date -u +'%Y-%m-%d') UTC"
+          git pull --rebase && git push
