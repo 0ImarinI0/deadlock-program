@@ -143,7 +143,7 @@ a { color: var(--brass); }
 /* portrait: every photo gets the same brass duotone inside an octagon */
 .portrait { --size: 64px; width: var(--size); height: var(--size); position: relative; flex: none; clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%); background: var(--brass); }
 .portrait > .inner { position: absolute; inset: 1.5px; clip-path: inherit; background: var(--raised); display: grid; place-items: center; overflow: hidden; }
-.portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.15) brightness(.95); }
+.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(1) contrast(1.15) brightness(.95); }
 .portrait .inner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, var(--brass), var(--bg) 85%); mix-blend-mode: color; pointer-events: none; }
 html[data-mode="bw"] .portrait .inner::after { display: none; }
 .portrait .ini { font: 400 calc(var(--size) * .42)/1 var(--f-display); color: var(--brass); position: relative; z-index: 1; }
@@ -386,7 +386,9 @@ const TIP_SECTIONS = [['lane', 'Лінія і фарм', 'lane', 'brass'], ['tea
     cat: 'all', newsQ: '', newsSearch: false, heroQ: '', heroRole: 'all', tipSec: null, tipIdx: 0,
   };
   const save = () => { LS.set('onb', S.onb); LS.set('level', S.level); LS.set('mode', S.mode); LS.set('bm', [...S.bm]); LS.set('fav', [...S.fav]); LS.set('mark', S.mark); };
-  const photo = slug => LS.get('photo_' + slug, null);
+  const BUNDLED = new Set(["abrams", "apollo", "baba", "bebop", "billy", "calico", "celeste", "drifter", "dynamo", "graves", "grey-talon", "haze", "holliday", "ivy", "kelvin", "lady-geist", "lash", "mcginnis", "mina", "mirage", "mo-and-krill", "paige", "paradox", "pocket", "rat-king", "rem", "seven", "shiv", "silver", "sinclair", "solomon", "the-doorman", "venator", "victor", "vindicta", "viscous", "vyper", "warden", "wraith", "yamato", "deadman-danny", "infernus", "nurse-harrow", "violet"]);
+  const ownPhoto = slug => LS.get('photo_' + slug, null);
+  const photo = slug => ownPhoto(slug) || (BUNDLED.has(slug) ? 'heroes/' + slug + '.webp' : null);
 
   // ---------- icons ----------
   const P = {
@@ -548,7 +550,7 @@ const TIP_SECTIONS = [['lane', 'Лінія і фарм', 'lane', 'brass'], ['tea
       <div class="chips" role="group" aria-label="Фільтр">${filters.map(([k, l]) => `<button class="chip caps" data-role="${k}" aria-pressed="${S.heroRole === k}">${l}</button>`).join('')}</div>
       <div class="grid3">${list.map(h => `<button class="card tile" data-hero="${h.slug}">${h.isNew ? `<span class="new">${tag('NEW', 'soul')}</span>` : ''}${S.fav.has(h.slug) ? `<span class="fav">${I('star', 's')}</span>` : ''}${portrait(h)}<span class="name">${esc(h.name)}</span><span class="muted" style="font-size:12px">${ROLES[h.role]}</span></button>`).join('')}</div>
       ${list.length ? '' : `<p class="muted">${S.heroRole === 'fav' ? 'Ви ще не додали улюблених героїв. Відкрийте героя й натисніть зірку.' : 'Героя не знайдено.'}</p>`}
-      <p class="muted" style="font-size:12px;margin:0">Фото героїв додаєте ви: відкрийте героя й натисніть «Додати фото». Застосунок оформить будь-яке зображення в єдиному стилі.</p>
+      <p class="muted" style="font-size:12px;margin:0">Хочете інше фото? Відкрийте героя й натисніть «Своє фото»: застосунок оформить його в тому ж стилі.</p>
     </div>${tabbar('heroes')}`;
   }
 
@@ -592,10 +594,10 @@ const TIP_SECTIONS = [['lane', 'Лінія і фарм', 'lane', 'brass'], ['tea
       <div class="between" style="align-items:center"><span class="caps brass">${ROLES[h.role].toUpperCase()}</span><button class="icon-btn" data-act="close-sheet" aria-label="Закрити">${I('close')}</button></div>
       <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">${portrait(h, true)}<h2 class="display" style="font-size:32px">${esc(h.name)}</h2><span class="muted" style="font-size:13px">У грі з: ${esc(h.rel)}</span></div>
       <div class="grid2">
-        <label class="btn secondary" style="cursor:pointer">${I('camera')}${p ? 'Змінити фото' : 'Додати фото'}<input type="file" accept="image/*" data-photo="${slug}" class="sr"></label>
+        <label class="btn secondary" style="cursor:pointer">${I('camera')}${ownPhoto(slug) ? 'Змінити фото' : 'Своє фото'}<input type="file" accept="image/*" data-photo="${slug}" class="sr"></label>
         <button class="btn ${fav ? 'primary' : 'secondary'}" data-act="fav" data-slug="${slug}" aria-pressed="${fav}">${I('star')}${fav ? 'В улюблених' : 'В улюблені'}</button>
       </div>
-      ${p ? `<button class="btn ghost" data-act="del-photo" data-slug="${slug}">${I('trash', 's')} Прибрати фото</button>` : ''}
+      ${ownPhoto(slug) ? `<button class="btn ghost" data-act="del-photo" data-slug="${slug}">${I('trash', 's')} Повернути стандартне фото</button>` : ''}
       <h3 class="display h2">Останні зміни</h3>
       ${notes.length ? `<div class="card changes">${notes.map(([k, d]) => { const tone = k === 'buff' ? 'soul' : 'blood'; return `<div class="change" style="--c:${TONE[tone]}"><span class="ib">${I(k === 'buff' ? 'up' : 'down')}</span><div class="muted" style="font-size:13px">${esc(d)}</div>${tag(k === 'buff' ? 'БАФ' : 'НЕРФ', tone)}</div>`; }).join('')}</div>` : '<p class="muted" style="margin:0">В останніх патчах (жовтень 2026) суттєвих змін для цього героя не було.</p>'}
     </div></div>`;
@@ -676,7 +678,7 @@ const TIP_SECTIONS = [['lane', 'Лінія і фарм', 'lane', 'brass'], ['tea
       case 'bookmark': { const id = d.id; if (S.bm.has(id)) { S.bm.delete(id); save(); return toast('Прибрано із закладок'); } S.bm.add(id); save(); return toast('Збережено в закладки'); }
       case 'share': { const url = location.href.split('#')[0] + '#article-' + d.id; const done = () => toast('Посилання скопійовано'); try { navigator.clipboard.writeText(url).then(done, () => toast(url)); } catch (_) { toast(url); } return; }
       case 'fav': { const s = d.slug; S.fav.has(s) ? S.fav.delete(s) : S.fav.add(s); save(); sheet = sheetHero(s); return render(); }
-      case 'del-photo': LS.del('photo_' + d.slug); sheet = sheetHero(d.slug); return toast('Фото прибрано');
+      case 'del-photo': LS.del('photo_' + d.slug); sheet = sheetHero(d.slug); return toast('Повернуто стандартне фото');
       case 'toggle-mark': S.mark = !S.mark; save(); return render();
       case 'toggle-mode': S.mode = S.mode === 'bw' ? 'color' : 'bw'; save(); return render();
       case 'toggle-level': S.level = S.level === 'novice' ? 'veteran' : 'novice'; S.tipIdx = 0; save(); return render();
