@@ -1,7 +1,155 @@
 {
- "updated": "2026-11-05T07:37:25.512Z",
+ "updated": "2026-11-05T22:00:37.123Z",
  "source": "Steam News API",
  "items": [
+  {
+   "id": "steam-1848664643342973",
+   "title": "Ranked - Beta Season 2",
+   "ts": 1793908694000,
+   "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643342973",
+   "blocks": [
+    [
+     "p",
+     "Today marks the end of our first Ranked Beta Season. Players who participated in Beta Season 1 will receive their commemorative Hideout plaque of their highest achieved rank once the new season rolls over."
+    ],
+    [
+     "p",
+     "Beta Season 2 begins now, and will end on Thursday March 11th 2027, lasting four months."
+    ],
+    [
+     "p",
+     "Seasonal Rank Reset"
+    ],
+    [
+     "p",
+     "Ranked players will see their rank soft reset at the start of this new season, and can begin their climb through Beta Season 2. This soft reset is significantly smaller than the previous one. On average, players can expect to see their rank decrease by around 1 badge as part of the soft reset. We will also be using the players' winrate in the previous season to make further adjustments of 1-2 subranks to help place players in the correct relative spots. Existing Ranked players will not have to complete calibration again at the start of this season, players who did not participate in Ranked last season will need to calibrate as usual."
+    ],
+    [
+     "p",
+     "Global Rank Redistribution"
+    ],
+    [
+     "p",
+     "After monitoring the Ranked playerbase throughout this first season, and accommodating for the recent influx of new players in the game, we will be running a global redistribution at the start of this new season. This means that some players may see their rank actually increase rather than decrease at the start of the new season despite the soft reset."
+    ],
+    [
+     "p",
+     "To summarize, both of these rank adjustments are being made as a two-step operation. The first is taking everyone's existing ranks and redistributing the curve as described above. Second is taking the new post-redistribution numbers and applying the soft reset of ranks by about -1 badge on average. The final result of this is going to be different for everyone, some may gain ranks despite the soft reset and others may get moved down slightly more."
+    ],
+    [
+     "p",
+     "------"
+    ],
+    [
+     "h",
+     "Rule changes to Ranked for Beta Season 2"
+    ],
+    [
+     "p",
+     "We are making a few changes to the way the Ranked system works for Beta Season 2 based on how things played out in Beta Season 1, as well as all of the useful feedback we've heard from the community."
+    ],
+    [
+     "p",
+     "Rank Loss Protection (Shields):"
+    ],
+    [
+     "p",
+     "Players within the Phantom, Ascendant, and Eternus ranks will no longer have any rank loss protection shields (previously 5 on full ranks and 2 on subranks)."
+    ],
+    [
+     "p",
+     "For all other players, we have reduced the number of rank loss protection shields. For full rank boundary, the shield count is reduced from 5 to 3 (i.e. if you are at Mystic I with 0 rank points, you will now maintain the Mystic badge for only 3 losses before dropping to Sentinel instead of 5). For subranks (i.e. Mystic III → Mystic II), the shield count is reduced from 2 to 1."
+    ],
+    [
+     "p",
+     "Rank Points:"
+    ],
+    [
+     "p",
+     "Per Match: The points for a game has been increased from 300 to 350."
+    ],
+    [
+     "p",
+     "Ranking Up: The points required to reach a new badge from a final subrank have been decreased from 2000 to 1500. The points between subranks remain unchanged at 1000."
+    ],
+    [
+     "p",
+     "Hero Bans:"
+    ],
+    [
+     "p",
+     "We have increased the number of hero bans per match in Ranked from 3 to 4."
+    ],
+    [
+     "p",
+     "Initial Placements:"
+    ],
+    [
+     "p",
+     "The highest players can be placed in the new season will be Ascendant I, with some potential for up to Ascendant III based on performance in the previous season (up from Oracle VI max last season)."
+    ],
+    [
+     "p",
+     "Hero Unlocking Requirements:"
+    ],
+    [
+     "p",
+     "We still feel strongly that it is very important that players in Ranked have deep knowledge and confidence piloting a hero they are using for the sake of all players involved, however we also recognize that there is room for improvement in how we measure this. Unlocking a hero in Ranked now uses a point system, rather than only progressing based on wins. Unlocking a hero now requires 35 points, you will gain 2 points for a win and 1 point for a loss. With the previous 15 win system (assuming 50% WR), it would have required an equivalent of 45 points (15 wins = 30 points, 15 losses = 15 points, 30+15=45)."
+    ],
+    [
+     "p",
+     "Ranked Leaderboards:"
+    ],
+    [
+     "list",
+     [
+      "We've reworked the backend to how leaderboards work to fix numerous bugs."
+     ]
+    ],
+    [
+     "p",
+     "[/*]"
+    ],
+    [
+     "list",
+     [
+      "Each Ranked season now has its own leaderboard."
+     ]
+    ],
+    [
+     "p",
+     "[/*]"
+    ],
+    [
+     "list",
+     [
+      "To show up on a leaderboard, you must play at least 50 Ranked matches in that season within the last 30 days. Ranking is based on your current badge progress."
+     ]
+    ],
+    [
+     "p",
+     "[/*]"
+    ],
+    [
+     "list",
+     [
+      "To show up on a hero-specific leaderboard, you must play at least 15 Ranked matches with that hero within the last 30 days. Ranking is based on your current badge progress and your recent win/loss performance on that hero."
+     ]
+    ],
+    [
+     "p",
+     "[/*]"
+    ],
+    [
+     "p",
+     "------"
+    ],
+    [
+     "p",
+     "Beta Season 2 begins today, we'll see you there!"
+    ]
+   ]
+  },
   {
    "id": "steam-1848664643339845",
    "title": "Minor Update - 11-04-2026",
@@ -557,22 +705,6 @@
       "Sinclair: Audience Participation - Copy duration reduced from 12s to 9s",
       "Sinclair: Audience Participation - Copied cooldown increased from 40% to 60%"
      ]
-    ]
-   ]
-  },
-  {
-   "id": "steam-1845383656387709",
-   "title": "Listen up, Crumbums! Your King is here.",
-   "ts": 1790974791000,
-   "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1845383656387709",
-   "blocks": [
-    [
-     "p",
-     "Out of the sewers and into the streets, the rightful King of the Rats is here at last. Rodent-hating citizens of Manhattan won't be prepared to see his Scrap Grenade bouncing down Broadway, nor for his Swarm of Rats biting at their heels. By donning his Royal Pestments, the Rat King shakes off incoming damage, allowing him to bravely lead the charge into battle. His loyal subjects will feel awed and inspired when they see the great Banner of Ratannia waving in the middle of combat, and those who oppose him will rue the day they ever thought they could overthrow the king. - \"Oh the rats are taking over, baby!\""
-    ],
-    [
-     "p",
-     "The Rat King is available to play now! Have a great weekend and keep those votes coming, as our next hero will be joining us on Tuesday at 2pm PDT. We'll see you then!"
     ]
    ]
   }
